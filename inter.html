@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+           .con{
+            display: flex;
+            background-color: #2d3f6a;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px;
+            font-family: sans-serif;
+            width: 20%;
+            height: 70vh;
+            box-shadow: 0  .5rem 15px rgb(125, 104, 104);
+            margin-left: 40%;
+            border-radius: 50px;
+            
+            
+           }
+           h2{
+            color: white;
+            text-align: center;
+            font-family: sans-serif;
+           }
+           input{
+            padding: 7px; 
+            border-radius: 20px;
+            border: none;
+            
+           }
+           select{
+            border-radius: 10px;
+            border: none;
+           }
+           select:hover{
+            background-color: #2d3f6a;
+           }
+           button{
+            padding: 7px;
+            display: block;
+            margin: auto;
+            margin-top: 10px;
+            width: 100%;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+           }
+           button:hover{
+            background-color: #596276;
+
+           }
+        
+    </style>
+</head>
+<body>
+    <div class="con">
+        <form action="">
+            <h2>Login form</h2>
+            <label for="username">username</label><br>
+            <input type="text"><br>
+            <label for="password">password</label><br>
+            <input type="password"><br>
+            <label for="">confirm password</label><br>
+            <input type="password"><br>
+            <label for="email">email</label><br>
+           <input type="email"><br>
+           <label for="">date</label><br>
+           <input type="date"><br>
+           <label for="">state of origin</label>
+           <select name="" id="">
+            <option value="kaduna">kaduna</option>
+            <option value="kano">kano</option>
+            <option value="jigawa">jigawa</option>
+            <option value="">kebbi</option>
+            <option value="">katsina</option>
+            <option value="">lagos</option>
+            <option value="">borno</option>
+           </select>
+           <button>Login</button><br>
+        </form>
+    </div>
+</body>
+</html>

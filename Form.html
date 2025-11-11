@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+            h1{
+            font-size: 32px;
+        }
+
+       @media screen and (max-width:600px){
+        h1{
+            font-size: 22px;
+        }
+       } 
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5%;
+        font-family: sans-serif;
+        width: 20%;
+        height: 70vh;
+        box-shadow: 0 .5rem 16px rgb(107, 43, 43);
+        margin-left: 40%;
+        border-radius: 25px;
+        background-color: rgb(72, 46, 46);
+        border: none;
+      }
+    input{
+        padding: 12px;
+        border-radius: 100px;
+        border: none;
+
+    }
+    select{
+        border-radius: 10px;
+        border: none;
+    }
+    select:hover{
+        background-color: rgb(72, 46, 46);
+    }
+
+    }
+    h2{
+        color: black;
+        text-align: center;
+    }
+    button{
+        padding: 10px;
+        width: 50%;
+        display: block;
+        margin: auto;
+        align-items: center;
+        justify-content: center; 
+        margin-top: 15px;
+        border-radius: 100PX;
+        border: none;
+        cursor: pointer;
+
+    }
+    Button:hover{
+        background-color: rgb(72, 46, 46);
+    }
+
+
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+    <form action="">
+    <h2>LOGIN PAGE</h2>
+    <label for="username">username</label><br>
+    <input type="text"><br>
+    <label for="email">email</label><br>
+    <input type="email"><br>
+    <label for="password">password</label> <br>
+    <input type="password"><br>
+    <label for="">date</label><br>
+    <input type="date"><br>
+    <label for="">state of origin</label>
+    <select name="" id="">
+        
+        <option value="">katsina</option>
+        <option value="">kaduna</option>
+        <option value="">kano</option>
+        <option value="">bauchi</option>
+        <option value="">jigawa</option>
+        <option value="">lagos</option>
+        <option value="">taraba</option>
+    </select>
+    <button>Login</button><br>
+
+
+    </form>
+ 
+   
+</div>
+</body>
+</html>

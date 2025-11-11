@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   // ...existing code...
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Login</title>
+    <style>
+       *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+       }
+       body {
+         font-family: Arial, sans-serif;
+         background: #f0f2f8;
+         min-height: 100vh;
+       }
+       .con{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 6%;
+       }
+       ul{
+        display: flex;
+        gap: 2rem;
+        background-color: rgb(85, 85, 189);
+       }
+       ul li{
+            padding: 15px;
+            list-style-type: none;
+        }
+        ul li:hover{
+            background-color: whitesmoke;
+        }
+        h2{
+            text-align: center;
+            color: rgb(84, 84, 145);
+            margin-bottom: 0.5rem;
+        }
+        form {
+           background: #ffffff;
+           padding: 2rem;
+           border-radius: 8px;
+           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+           width: 100%;
+           max-width: 420px;
+       }
+       label{
+        font-weight: 600;
+        display: block;
+        margin: 0.5rem 0 0.25rem;
+       }
+       .field {
+         margin-bottom: 0.75rem;
+       }
+       input{
+        width: 100%;
+        padding: 0.6rem;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        font-size: 0.95rem;
+       }
+       .help {
+         font-size: 0.85rem;
+         color: #b91c1c;
+         height: 1rem;
+         margin-top: 0.25rem;
+       }
+       button{
+        background-color: rgb(85, 85, 189);
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        width: 100%;
+        font-weight: 600;
+       }
+       button:disabled {
+         opacity: 0.6;
+         cursor: not-allowed;
+       }
+       form button:hover:not(:disabled) {
+           background-color: rgb(65, 65, 165);
+       }
+       .success {
+         color: #065f46;
+         background: #ecfdf5;
+         border: 1px solid #bbf7d0;
+         padding: 0.5rem;
+         border-radius: 6px;
+         margin-top: 0.75rem;
+         display: none;
+       }
+    </style>
+</head>
+<body>
+    <div class="con">
+        <form id="signupForm" action="#" method="post" novalidate>
+            <h2>Sign up</h2>
+
+            <div class="field">
+              <label for="username">Username</label>
+              <input id="username" name="username" type="text" placeholder="Enter your username" required minlength="3" maxlength="30" />
+              <div class="help" id="usernameHelp" aria-live="polite"></div>
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+              <div class="help" id="emailHelp" aria-live="polite"></div>
+            </div>
+
+            <div class="field">
+              <label for="password">Password</label>
+              <input id="password" name="password" type="password" placeholder="Enter your password" required minlength="6" />
+              <div class="help" id="passwordHelp" aria-live="polite"></div>
+            </div>
+
+            <div class="field">
+              <label for="confirm">Confirm Password</label>
+              <input id="confirm" name="confirm" type="password" placeholder="Confirm password" required />
+              <div class="help" id="confirmHelp" aria-live="polite"></div>
+            </div>
+
+            <div class="field">
+              <label for="date">Date of Birth</label>
+              <input id="date" name="date" type="date" required />
+              <div class="help" id="dateHelp" aria-live="polite"></div>
+            </div>
+
+            <button id="submitBtn" type="submit">Proceed to next step</button>
+
+            <div id="success" class="success" role="status" aria-live="polite">
+              Registration validated locally. (This demo does not submit to a server.)
+            </div>
+        </form>
+    </div>
+
+    <script>
+      (function () {
+        const form = document.getElementById('signupForm');
+        const username = document.getElementById('username');
+        const email = document.getElementById('email');
+        const password = document.getElementById('password');
+        const confirm = document.getElementById('confirm');
+        const date = document.getElementById('date');
+        const submitBtn = document.getElementById('submitBtn');
+        const success = document.getElementById('success');
+
+        function setHelp(el, msg) {
+          const help = document.getElementById(el.id + 'Help');
+          help.textContent = msg || '';
+        }
+
+        function validatePasswords() {
+          if (confirm.value === '') {
+            setHelp(confirm, 'Please confirm your password.');
+            return false;
+          }
+          if (password.value !== confirm.value) {
+            setHelp(confirm, "Passwords don't match.");
+            return false;
+          }
+          setHelp(confirm, '');
+          return true;
+        }
+
+        function validateEmail() {
+          if (!email.checkValidity()) {
+            setHelp(email, 'Please enter a valid email.');
+            return false;
+          }
+          setHelp(email, '');
+          return true;
+        }
+
+        function validateUsername() {
+          if (!username.checkValidity()) {
+            setHelp(username, 'Username must be 3–30 characters.');
+            return false;
+          }
+          setHelp(username, '');
+          return true;
+        }
+
+        function validateDate() {
+          if (!date.value) {
+            setHelp(date, 'Please select a date.');
+            return false;
+          }
+          setHelp(date, '');
+          return true;
+        }
+
+        function validatePasswordStrength() {
+          if (!password.checkValidity()) {
+            setHelp(password, 'Password must be at least 6 characters.');
+            return false;
+          }
+          setHelp(password, '');
+          return true;
+        }
+
+        function validateForm() {
+          const ok = [
+            validateUsername(),
+            validateEmail(),
+            validatePasswordStrength(),
+            validatePasswords(),
+            validateDate()
+          ].every(Boolean);
+          submitBtn.disabled = !ok;
+          return ok;
+        }
+
+        // live validation
+        [username, email, password, confirm, date].forEach(el => {
+          el.addEventListener('input', () => {
+            // clear success message on change
+            success.style.display = 'none';
+            validateForm();
+          });
+        });
+
+        // prevent real submission for demo; show local success message instead
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          if (!validateForm()) return;
+          success.style.display = 'block';
+          // Here you would normally send the data with fetch() or let the form submit.
+          // Example:
+          // form.submit();
+        });
+
+        // initial validation state
+        validateForm();
+      })();
+    </script>
+</body>
+</html>
+// ...existing code... 
+</body>
+</html>

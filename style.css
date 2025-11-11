@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: gray;
+}
+
+ ul{
+    display: flex;
+    gap: 2rem;
+    background-color: white;
+}  
+
+ul li{
+    list-style-type: none;
+    padding: 10px;
+}
+
+ul li:hover{
+    background-color: gray;
+    cursor: pointer;
+}
+ 
+ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+    font-family: sans-serif;
+}
+
+
+
+
